@@ -49,6 +49,7 @@
 		E00AA5EB2AE01BA000CEA65E /* CaseStudyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaseStudyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00AA5EF2AE01BA000CEA65E /* CaseStudyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudyUITests.swift; sourceTree = "<group>"; };
 		E00AA5F12AE01BA000CEA65E /* CaseStudyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E08E9CDC2AE1DA5A00C9C90D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +310,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E00AA5DA2AE01BA000CEA65E /* Base */,
+				E08E9CDC2AE1DA5A00C9C90D /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
