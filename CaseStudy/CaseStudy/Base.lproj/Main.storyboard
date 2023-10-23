@@ -34,7 +34,7 @@
                                     <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="amu-e1-f6U" kind="show" id="kl6-Ky-rvo"/>
+                                    <action selector="nextPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nlb-5k-K9J"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Api Key" minimumFontSize="50" translatesAutoresizingMaskIntoConstraints="NO" id="POv-yd-S1J">
@@ -106,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="20.610687022900763" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="P6Y-L3-lti">
             <objects>
-                <viewController id="amu-e1-f6U" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="amu-e1-f6U" customClass="DetailViewController" customModule="CaseStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ix-um-dUn">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -25,6 +25,10 @@ class ViewController: UIViewController {
         
     }
 
+    @IBAction func nextPage(_ sender: Any) {
+        let vc =  self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        self.show(vc, sender: nil)
+    }
     
 }
 
