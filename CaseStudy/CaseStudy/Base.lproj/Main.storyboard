@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0vh-8A-QxK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0vh-8A-QxK">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <accessibilityOverrides/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -114,24 +114,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wnv-w2-ldC">
-                                <rect key="frame" x="31" y="413" width="330" height="327"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wnv-w2-ldC">
+                                <rect key="frame" x="31" y="369" width="330" height="371"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Istanbul,TR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnV-ow-2k8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Istanbul,TR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnV-ow-2k8">
                                 <rect key="frame" x="150" y="149" width="92" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5OE-6p-1gl">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5OE-6p-1gl">
                                 <rect key="frame" x="150" y="181" width="92" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGf-8F-JEs">
-                                <rect key="frame" x="120" y="276" width="153" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="5°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGf-8F-JEs">
+                                <rect key="frame" x="120" y="278" width="153" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -141,12 +138,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="YGf-8F-JEs" firstAttribute="top" secondItem="wnV-ow-2k8" secondAttribute="bottom" constant="90" id="4xw-ZH-w0Y"/>
+                            <constraint firstItem="COb-29-rq9" firstAttribute="trailing" secondItem="5OE-6p-1gl" secondAttribute="trailing" constant="151" id="ACr-Ld-MdS"/>
                             <constraint firstItem="Wnv-w2-ldC" firstAttribute="leading" secondItem="COb-29-rq9" secondAttribute="leading" constant="31" id="BGB-9v-XAZ"/>
+                            <constraint firstItem="Wnv-w2-ldC" firstAttribute="top" secondItem="YGf-8F-JEs" secondAttribute="bottom" constant="49" id="Gk5-Eb-enM"/>
                             <constraint firstItem="COb-29-rq9" firstAttribute="trailing" secondItem="Wnv-w2-ldC" secondAttribute="trailing" constant="32" id="If0-9t-f6B"/>
+                            <constraint firstItem="YGf-8F-JEs" firstAttribute="top" secondItem="5OE-6p-1gl" secondAttribute="bottom" constant="26" id="LjC-qc-vvx"/>
+                            <constraint firstItem="Wnv-w2-ldC" firstAttribute="top" secondItem="YGf-8F-JEs" secondAttribute="bottom" constant="49" id="NLh-wb-Li7"/>
                             <constraint firstItem="Wnv-w2-ldC" firstAttribute="top" secondItem="COb-29-rq9" secondAttribute="top" constant="310" id="RU0-oz-Gx8"/>
+                            <constraint firstItem="5OE-6p-1gl" firstAttribute="leading" secondItem="COb-29-rq9" secondAttribute="leading" constant="150" id="Ttb-qE-AFw"/>
+                            <constraint firstItem="5OE-6p-1gl" firstAttribute="top" secondItem="COb-29-rq9" secondAttribute="top" constant="122" id="VJh-yL-Gx6"/>
+                            <constraint firstItem="COb-29-rq9" firstAttribute="trailing" secondItem="wnV-ow-2k8" secondAttribute="trailing" constant="151" id="dIv-Mx-2YE"/>
+                            <constraint firstItem="wnV-ow-2k8" firstAttribute="leading" secondItem="COb-29-rq9" secondAttribute="leading" constant="150" id="hM6-sy-8PD"/>
+                            <constraint firstItem="wnV-ow-2k8" firstAttribute="top" secondItem="COb-29-rq9" secondAttribute="top" constant="90" id="hiW-CT-Nbt"/>
+                            <constraint firstItem="YGf-8F-JEs" firstAttribute="leading" secondItem="COb-29-rq9" secondAttribute="leading" constant="120" id="koi-7x-8AX"/>
+                            <constraint firstItem="YGf-8F-JEs" firstAttribute="top" secondItem="5OE-6p-1gl" secondAttribute="bottom" constant="26" id="mdx-NQ-qfx"/>
+                            <constraint firstItem="COb-29-rq9" firstAttribute="trailing" secondItem="YGf-8F-JEs" secondAttribute="trailing" constant="120" id="q4G-Vk-N5C"/>
+                            <constraint firstItem="COb-29-rq9" firstAttribute="bottom" secondItem="Wnv-w2-ldC" secondAttribute="bottom" constant="78" id="qJF-XJ-2qz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BjG-aT-Xxt"/>
+                    <connections>
+                        <outlet property="temp" destination="YGf-8F-JEs" id="YnB-Tk-uRE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qlm-FN-jcB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

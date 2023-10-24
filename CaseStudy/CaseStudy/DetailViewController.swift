@@ -9,61 +9,54 @@ import UIKit
 import CoreLocation
 import Alamofire
 
-struct WeatherData: Codable {
-    let main: Main
-}
-
-struct Main: Codable {
-    let temp: Double
-}
 
 struct Constants {
-     static let apiKey = "8ddadecc7ae4f56fee73b2b405a63659"
+    static let apiKey = "8ddadecc7ae4f56fee73b2b405a63659"
 }
 
 
 
 class DetailViewController: UIViewController,CLLocationManagerDelegate {
+    @IBOutlet weak var temp: UILabel!
     
     let locationManager = CLLocationManager()
+    
+    let viewModel = WeatherViewModel()
+    let locationService = LocationService()
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-                locationManager.requestWhenInUseAuthorization()
-                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-                locationManager.startUpdatingLocation()
         
-    }
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else {
-            return
+        locationService.requestLocationUpdate()
+        DispatchQueue.main.async {
+            self.viewModel.onWeatherDataFetched = { [weak self] in
+                if let weatherData = self?.viewModel.weatherData {
+                    let temperature = Int(weatherData.main.temp - 273.15)
+                    self?.temp.text = " \(temperature)°C"
+                }
+            }
         }
         
-        fetchWeatherDataWithLocation(location: location)
-    }
-
-    func fetchWeatherDataWithLocation(location: CLLocation) {
-        let latitude = location.coordinate.latitude
-        let longitude = location.coordinate.longitude
-
-        let apiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(Constants.apiKey)"
-
-        AF.request(apiUrl).responseData { response in
-            switch response.result {
-                        case .success:
-                            if let data = response.data,
-                               let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                               let main = json["main"] as? [String: Any],
-                               let temp = main["temp"] as? Double {
-                                print("Sıcaklık: \(Int((temp-273)))°C")
-                            } else {
-                                print("JSON verileri işlenemedi.")
-                            }
-                        case .failure(let error):
-                            print("API isteği başarısız oldu: \(error)")
-                        }
+        locationService.onLocationUpdate = { [weak self] location in
+            WeatherApiService.request(WeatherApiEndPoint.weather(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), locationService: self!.locationService) { (result: Result<WeatherModel, Error>) in
+                switch result {
+                case .success(let weatherData):
+                    self?.viewModel.weatherData = weatherData
+                    self?.viewModel.onWeatherDataFetched?()
+                case .failure(let error):
+                    print("API İsteği Başarısız: \(error)")
+                }
+            }
         }
+        
+        
     }
 }
+
+
+
+
+
+
