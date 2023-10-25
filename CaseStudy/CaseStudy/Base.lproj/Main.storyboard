@@ -159,7 +159,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="BjG-aT-Xxt"/>
                     <connections>
+                        <outlet property="country" destination="wnV-ow-2k8" id="J7e-Is-l3h"/>
                         <outlet property="temp" destination="YGf-8F-JEs" id="YnB-Tk-uRE"/>
+                        <outlet property="tempImage" destination="5OE-6p-1gl" id="9o5-Pk-eUJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qlm-FN-jcB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -176,10 +178,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tableCellBlueTextColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

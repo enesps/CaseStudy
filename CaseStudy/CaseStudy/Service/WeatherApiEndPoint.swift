@@ -1,14 +1,7 @@
-//
-//  WeatherApiEndPoint.swift
-//  CaseStudy
-//
-//  Created by Enes Pusa on 24.10.2023.
-//
 import Foundation
 import Alamofire
-import CoreLocation
 
-enum WeatherApiEndPoint: URLRequestConvertible {
+enum APIEndpoint: URLRequestConvertible {
     case weather(latitude: Double, longitude: Double)
 
     private var baseURL: URL { URL(string: "https://api.openweathermap.org/data/2.5")! }
@@ -43,11 +36,5 @@ enum WeatherApiEndPoint: URLRequestConvertible {
         var urlRequest = URLRequest(url: url)
         urlRequest.method = method
         return try URLEncoding.default.encode(urlRequest, with: parameters)
-    }
-      func endpoint(for endpoint: WeatherApiEndPoint, location: CLLocation) -> WeatherApiEndPoint {
-        switch endpoint {
-        case .weather:
-            return .weather(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        }
     }
 }
