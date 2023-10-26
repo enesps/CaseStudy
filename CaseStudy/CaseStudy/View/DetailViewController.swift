@@ -22,28 +22,24 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var country: UILabel!
     @IBOutlet weak var tempImage: UIImageView!
     let locationManager = CLLocationManager()
+  
+
+    var viewModel = WeatherViewModel()
     
-    let viewModel = WeatherViewModel()
     override func viewDidLoad() {
-            super.viewDidLoad()
-           // makeApi()
-            viewModel.onWeatherDataFetched = { [weak self] in
-                if let weatherData = self?.viewModel.weatherData {
-                    
-                    //let temperature = Int(weatherData.main.temp - 273.15)
-                    print(weatherData.current.humidity)
-                    //let country = String(weatherData.timezone)
-                   // self?.country.text = "\(country)"
-                   //self?.temp.text = "\(temperature)°C"
-                }
-            }
+        super.viewDidLoad()
+        WeatherService.getGameList { model, error in
+            print(model?.current?.temp)
         }
-
+//        viewModel.fetchWeatherData { (weatherData, error) in
+//            if let weatherData = weatherData {
+//                DispatchQueue.main.async {
+//                    self.temp.text = "\(weatherData.current?.humidity)°C" // Örnek: Sıcaklık bilgisini görüntüleme
+//                       }
+//            } else if let error = error {
+//                // Hata durumunu ele alın.
+//                print("error\(error)")
+//            }
+//        }
+    }
 }
-
-
-
-
-
-
-
