@@ -20,7 +20,7 @@ class WeatherService {
 //            }
 //        }
 //    }
-    static private func handleResponse<T: Decodable>(urlString: String, responseType: T.Type, completion: @escaping (T?, Error?) -> Void) {
+     func handleResponse<T: Decodable>(urlString: String, responseType: T.Type, completion: @escaping (T?, Error?) -> Void) {
             AF.request(urlString).response { response in
                 guard let data = response.value else {
                     DispatchQueue.main.async {
@@ -28,6 +28,9 @@ class WeatherService {
                     }
                     return
                 }
+                let body = String(data: data ??  Data(), encoding: .utf8)
+                debugPrint(body! as NSString)
+
                 let decoder = JSONDecoder()
                 do {
                     let responseObject = try decoder.decode(T.self, from: data!)
@@ -42,12 +45,12 @@ class WeatherService {
                 }
             }
         }
-    static func getGameList( completion: @escaping (WeatherModel?, Error?) -> Void) {
-            let urlString = "https://api.openweathermap.org/data/2.5/onecall?lat=-33.8634&lon=151.211&exclude=daily&appid=8ddadecc7ae4f56fee73b2b405a63659"
-            handleResponse(urlString: urlString, responseType: WeatherModel.self) { responseModel, error in
-                completion(responseModel, error)
-            }
-        }
+//    static func getGameList( completion: @escaping (WeatherModel?, Error?) -> Void) {
+//            let urlString = "https://api.openweathermap.org/data/2.5/onecall?lat=-33.8634&lon=151.211&exclude=daily&appid=8ddadecc7ae4f56fee73b2b405a63659"
+//            handleResponse(urlString: urlString, responseType: WeatherModel.self) { responseModel, error in
+//                completion(responseModel, error)
+//            }
+//        }
 
 
 }
