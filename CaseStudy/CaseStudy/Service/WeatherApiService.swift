@@ -28,8 +28,8 @@ class WeatherService {
                     }
                     return
                 }
-                let body = String(data: data ??  Data(), encoding: .utf8)
-                debugPrint(body! as NSString)
+//                let body = String(data: data ??  Data(), encoding: .utf8)
+//                debugPrint(body! as NSString)
 
                 let decoder = JSONDecoder()
                 do {
