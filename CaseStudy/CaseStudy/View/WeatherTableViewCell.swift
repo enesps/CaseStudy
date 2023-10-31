@@ -8,9 +8,13 @@
 import UIKit
 
 class WeatherTableViewCell: UITableViewCell {
-    @IBOutlet private weak var temp: UILabel!
-    
 
+    
+    @IBOutlet private weak var dailyDay: UILabel!
+    @IBOutlet private weak var dailyImage: UIImageView!
+    @IBOutlet private weak var dailyTemp: UILabel!
+    
+    @IBOutlet private weak var dailyFeelsTemp: UILabel!
     override func awakeFromNib() {
         
         super.awakeFromNib()
@@ -23,8 +27,28 @@ class WeatherTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func setTemp(temp :String){
-        self.temp.text = temp
+    func setdailyDay(dayCode :String){
+        
+        let date = Date(timeIntervalSince1970: TimeInterval(dayCode)!)
+
+        // Date nesnesini gün olarak biçimlendirin
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+
+        let day = dateFormatter.string(from: date)
+        self.dailyDay.text = day
+        
     }
+    func setdailyImage(imageString :UIImage){
+        self.dailyImage.image = imageString
+    }
+    func setdailyTemp(dailyTemp :String){
+        
+        self.dailyTemp.text = "\(dailyTemp)°"
+    }
+    func setdailyFeelsTemp(dailyFeelsTemp :String){
+        self.dailyFeelsTemp.text = "\(dailyFeelsTemp)°"
+    }
+   
 
 }

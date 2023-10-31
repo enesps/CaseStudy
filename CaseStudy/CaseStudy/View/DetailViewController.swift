@@ -22,35 +22,26 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate{
     @IBOutlet weak var country: UILabel!
     @IBOutlet weak var tempImage: UIImageView!
     let locationManager = CLLocationManager()
-    
+    @IBOutlet weak var weatherDescription: UILabel!
     var model = [Daily]()
-    
     var viewModel = WeatherViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
         viewModel.getWeatherData {[weak self] weatherData, error in
-            
-            
-            
             if let weatherData = weatherData, let emt = weatherData.daily {
-                
                 self?.model = (emt)
                 DispatchQueue.main.async {
                     self?.weatherTableView.reloadData()
                 }
-                print(self?.model.count)
                 let timezone = weatherData.timezone?.components(separatedBy: "/").last?.replacingOccurrences(of: "_", with: " ")
                 if let temperature = weatherData.current?.temp {
                     print(temperature)
-                    self?.temp.text = "\(String(describing: temperature))"
+                    self?.temp.text = "\(String(describing: Int(temperature-273.15)))°"
                 }
                 self?.country.text = timezone
                 
                 
-                
+                self?.weatherDescription.text = weatherData.current?.weather?.first?.description?.rawValue
                 
                 self?.viewModel.getWeatherIcon(iconCode: (weatherData.current?.weather?.first?.icon)!) { iconImage in
                     if let image = iconImage {
@@ -58,8 +49,6 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate{
                         DispatchQueue.main.sync {
                             self?.tempImage.image = image
                         }
-                    } else {
-                        // Hata veya eksik ikon
                     }
                 }
                 
@@ -84,10 +73,30 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = weatherTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WeatherTableViewCell
         // Burada Daily modeli içindeki temp.day kullanılıyor
         if let dayTemp = model[indexPath.row].temp?.day {
-            cell.setTemp(temp: String(describing: dayTemp))
+            cell.setdailyTemp(dailyTemp: String(describing: Int(dayTemp-273.15)))
+            
         } else {
-            cell.setTemp(temp: "Bilgi yok")
+            cell.setdailyTemp(dailyTemp: "Bilgi yok")
         }
+        if let dayFeelsLike = model[indexPath.row].temp?.max,
+           let dayCode = model[indexPath.row].dt {
+            cell.setdailyFeelsTemp(dailyFeelsTemp: String(describing: Int(dayFeelsLike-273.15)))
+            cell.setdailyDay(dayCode: String(describing: dayCode))
+        }
+
+        if let dayImage = model[indexPath.row].weather?.first?.icon {
+            viewModel.getWeatherIcon(iconCode: dayImage) { iconImage in
+                if let image = iconImage {
+                    
+                    DispatchQueue.main.sync {
+                        cell.setdailyImage(imageString: image)
+                    }
+                }
+            }
+        }
+        
+        
+        
         
         return cell
     }
