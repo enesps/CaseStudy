@@ -3,29 +3,43 @@ import UIKit
 import CoreLocation
 
 class WeatherViewModel {
-       private var weatherService: WeatherService
+    private var weatherService: WeatherService
     private var locationService: LocationService
-        
+    private var DailyModel = [Daily]()
+    
     init(weatherService: WeatherService = WeatherService(), locationService: LocationService = LocationService()) {
         self.weatherService = weatherService
         self.locationService = locationService
     }
-    //    private var locationService: LocationService
-    //
-    //    init(weatherService: WeatherService = WeatherService.shared, locationService: LocationService = LocationService.shared) {
-    //        self.weatherService = weatherService
-    //        self.locationService = locationService
-    //    }
-    //
-    //    func fetchWeatherData(completion: @escaping (WeatherModel?, Error?) -> Void) {
-    //        locationService.startUpdatingLocation()
-    //        locationService.didUpdateLocation = { [weak self] location in
-    //            // Konum bilgilerini alın ve WeatherService ile hava durumu verilerini çekin.
-    //            self?.weatherService.fetchWeatherData(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { (weatherData, error) in
-    //                completion(weatherData, error)
-    //            }
-    //        }
-    //    }
+    var getDailyModel: [Daily] {
+        return DailyModel
+    }
+    func setDailyModel(DailyModel: [Daily]) {
+        self.DailyModel = DailyModel
+    }
+    func updateUITableView(daily: [Daily],TableView:UITableView){
+        self.DailyModel = (daily)
+        DispatchQueue.main.async {
+            TableView.reloadData()
+        }
+    }
+    func updateUICountry(weatherData:WeatherModel,countryUI:UILabel) {
+        let weatherCountry = weatherData.timezone?.components(separatedBy: "/").last?.replacingOccurrences(of: "_", with: " ")
+        countryUI.text = weatherCountry
+        
+    }
+    func updateUITemperature(temperature: Double,weatherTemp:UILabel) {
+        weatherTemp.text = "\(String(describing: Int(temperature - 273.15)))°"
+    }
+    func updateUIWeatherDescription(description: String,weatherDescriptionUI: UILabel) {
+        weatherDescriptionUI.text = description
+      
+    }
+    func updateUIWeatherIcon(tempImage:UIImageView,image: UIImage) {
+        DispatchQueue.main.sync {
+           tempImage.image = image
+        }
+    }
     func getWeatherData(completion: @escaping (WeatherModel?, Error?) -> Void) {
         locationService.onLocationUpdate = { [weak self] location in
             // Konum bilgilerini kullanarak API için URL oluşturun

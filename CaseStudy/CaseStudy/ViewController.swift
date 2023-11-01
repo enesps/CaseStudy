@@ -31,4 +31,15 @@ class ViewController: UIViewController {
     }
     
 }
+extension ViewController {
+//    func handleDeepLink(_ deepLink : DeepLink){
+//        switch deepLink {
+//        case .home:
+//            presentTabBar(withIndex : 0)
+//        case .WeatherDetail:
+//            presentTabBar(withIndex : 1)
+//            
+//        }
+//    }
+}
 
