@@ -25,7 +25,6 @@
 		E09CA4F92AE656C5001BEFE7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09CA4F72AE656C5001BEFE7 /* CoreLocation.framework */; };
 		E09CA4FE2AE658FC001BEFE7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09CA4FD2AE658FC001BEFE7 /* DetailViewController.swift */; };
 		E09CA5012AE68966001BEFE7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E09CA5002AE68966001BEFE7 /* Alamofire */; };
-		E0B4E3582AF290FB006AC4FA /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B4E3572AF290FB006AC4FA /* DeepLink.swift */; };
 		E0E8E2A72AE991DB006AC62E /* OptionallyDecodable in Frameworks */ = {isa = PBXBuildFile; productRef = E0E8E2A62AE991DB006AC62E /* OptionallyDecodable */; };
 		E0E8E2AC2AEA65F0006AC62E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E0E8E2AB2AEA65F0006AC62E /* SwiftyJSON */; };
 		E0FC48422AE92EA600DC1189 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FC48412AE92EA600DC1189 /* Constants.swift */; };
@@ -70,7 +69,6 @@
 		E09CA4F62AE656C5001BEFE7 /* CoreLocationUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocationUI.framework; path = System/Library/Frameworks/CoreLocationUI.framework; sourceTree = SDKROOT; };
 		E09CA4F72AE656C5001BEFE7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E09CA4FD2AE658FC001BEFE7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		E0B4E3572AF290FB006AC4FA /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
 		E0FC48412AE92EA600DC1189 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,7 +137,6 @@
 				E00AA5D72AE01BA000CEA65E /* Assets.xcassets */,
 				E00AA5DC2AE01BA000CEA65E /* Info.plist */,
 				E0FC48412AE92EA600DC1189 /* Constants.swift */,
-				E0B4E3572AF290FB006AC4FA /* DeepLink.swift */,
 			);
 			path = CaseStudy;
 			sourceTree = "<group>";
@@ -354,7 +351,6 @@
 				E03B09FB2AE7F88700B8C3F6 /* WeatherApiService.swift in Sources */,
 				E03B09F92AE7F87900B8C3F6 /* WeatherModel.swift in Sources */,
 				E03B09FD2AE7F89700B8C3F6 /* WeatherApiEndPoint.swift in Sources */,
-				E0B4E3582AF290FB006AC4FA /* DeepLink.swift in Sources */,
 				E03B09FF2AE7FCA900B8C3F6 /* LocationService.swift in Sources */,
 				E09CA4FE2AE658FC001BEFE7 /* DetailViewController.swift in Sources */,
 			);

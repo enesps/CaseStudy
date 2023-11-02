@@ -1,15 +1,8 @@
-//
-//  DetailViewController.swift
-//  CaseStudy
-//
-//  Created by Enes Pusa on 23.10.2023.
-//
-
 import UIKit
 import CoreLocation
 import Alamofire
 
-class DetailViewController: UIViewController,CLLocationManagerDelegate{
+class DetailViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var temp: UILabel!
     @IBOutlet weak var weatherTableView: UITableView!
     @IBOutlet weak var temp1: UILabel!
@@ -19,40 +12,55 @@ class DetailViewController: UIViewController,CLLocationManagerDelegate{
     @IBOutlet weak var loadDataActivator: UIActivityIndicatorView!
     let locationManager = CLLocationManager()
     let viewModel = WeatherViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Veriler yüklenirken aktivite göstergesini başlat
         loadDataActivator.startAnimating()
-        viewModel.getWeatherData {[weak self] weatherData, error in
+        
+        viewModel.getWeatherData { [weak self] weatherData, error in
             if let weatherData = weatherData, let daily = weatherData.daily {
-                if let tableView = self?.weatherTableView,
-                   let country = self?.country,
-                   let temperature = weatherData.current?.temp,
-                   let tempUI = self?.temp,
-                   let description = weatherData.current?.weather?.first?.description?.rawValue,
-                   let weatherDescription = self?.weatherDescription,
-                   let tempImage = self?.tempImage{
-                    self?.viewModel.updateUITableView(daily: daily, TableView: tableView)
-                    self?.viewModel.updateUICountry(weatherData: weatherData, countryUI: country)
-                    self?.viewModel.updateUITemperature(temperature: temperature, weatherTemp: tempUI)
-                    self?.viewModel.updateUIWeatherDescription(description: description, weatherDescriptionUI: weatherDescription)
-                    self?.viewModel.getWeatherIcon(iconCode: (weatherData.current?.weather?.first?.icon)!) { iconImage in
-                        if let image = iconImage {
-                            self?.viewModel.updateUIWeatherIcon(tempImage:tempImage, image: image)
+                DispatchQueue.main.async {
+                    // TableView ve diğer UI elemanlarını güncelle
+                    if let tableView = self?.weatherTableView {
+                        self?.viewModel.updateUITableView(daily: daily, TableView: tableView)
+                    }
+                    if let countryLabel = self?.country {
+                        self?.viewModel.updateUICountry(weatherData: weatherData, countryUI: countryLabel)
+                    }
+                    if let temperature = weatherData.current?.temp,
+                       let tempUI = self?.temp,
+                       let description = weatherData.current?.weather?.first?.description?.rawValue,
+                       let weatherDescription = self?.weatherDescription,
+                       let icon = weatherData.current?.weather?.first?.icon,
+                       let tempImage = self?.tempImage {
+                        self?.viewModel.updateUITemperature(temperature: temperature, weatherTemp: tempUI)
+                        self?.viewModel.updateUIWeatherDescription(description: description, weatherDescriptionUI: weatherDescription)
+                        self?.viewModel.getWeatherIcon(iconCode:icon) { iconImage in
+                            if let image = iconImage {
+                                self?.viewModel.updateUIWeatherIcon(tempImage: tempImage, image: image)
+                            }
                         }
                     }
+                    
+                    // Veriler yüklendiğinde aktivite göstergesini durdur
+                    self?.loadDataActivator.stopAnimating()
                 }
             }
         }
+        
         weatherTableView.delegate = self
         weatherTableView.dataSource = self
-        loadDataActivator.stopAnimating()
     }
 }
+
 
 extension DetailViewController : UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = weatherTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WeatherTableViewCell
+        
         // Burada Daily modeli içindeki temp.day kullanılıyor
         if let dayTemp = viewModel.getDailyModel[indexPath.row].temp?.day {
             cell.setdailyTemp(dailyTemp: String(describing: Int(dayTemp-273.15)))
