@@ -51,6 +51,36 @@ class WeatherViewModel {
             }
         }
     }
+    // Hava durumuna göre arka plan resmini güncelle
+    func updateBackgroundImage(backgroundImageView:UIImageView,withCondition condition: String) {
+        var backgroundName = "default" // Varsayılan arka plan resmi adı
+        
+        switch condition {
+            case "clear sky":
+                backgroundName = "clear_sky" // Güneşli hava için resim adı
+            case "few clouds":
+                backgroundName = "few_clouds" // Bulutlu hava için resim adı
+            case "scattered clouds":
+                backgroundName = "scattered_clouds"
+            case "broken clouds":
+                backgroundName = "broken_clouds"
+            case "shower rain":
+                backgroundName = "shower_rain"
+            case "rain":
+                backgroundName = "rain"
+            case "snow":
+                backgroundName = "snow"
+            case "mist":
+                backgroundName = "mist"
+            // Yağmurlu hava için resim adı
+            default:
+                backgroundName = "weather"
+                break
+        }
+        
+        // Arka plan resmini güncelle
+        backgroundImageView.image = UIImage(named: backgroundName)
+    }
     func getWeatherIcon(iconCode: String, completion: @escaping (UIImage?) -> Void) {
         // Construct the URL for the weather icon
         let iconURL = "https://openweathermap.org/img/wn/\(iconCode)@2x.png"

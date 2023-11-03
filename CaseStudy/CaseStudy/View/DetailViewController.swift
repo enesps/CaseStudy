@@ -9,6 +9,7 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var country: UILabel!
     @IBOutlet weak var tempImage: UIImageView!
     @IBOutlet weak var weatherDescription: UILabel!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var loadDataActivator: UIActivityIndicatorView!
     let locationManager = CLLocationManager()
     let viewModel = WeatherViewModel()
@@ -43,6 +44,10 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
                             }
                         }
                     }
+                    if let condition = weatherData.current?.weather?.first?.description,
+                        let background = self?.backgroundImageView{
+                         self?.viewModel.updateBackgroundImage(backgroundImageView: background,withCondition: condition.rawValue)
+                                        }
                     
                     // Veriler yüklendiğinde aktivite göstergesini durdur
                     self?.loadDataActivator.stopAnimating()
