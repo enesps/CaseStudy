@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Niagara-Falls-Sunset-Wallpaper-iPhone-Wallpaper-iphoneswallpapers_com" translatesAutoresizingMaskIntoConstraints="NO" id="jwb-o8-2Tl">
-                                <rect key="frame" x="-69" y="-77" width="638" height="1285"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="weather2" translatesAutoresizingMaskIntoConstraints="NO" id="vu5-Wm-j2J">
+                                <rect key="frame" x="-511" y="-726" width="921" height="1968"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuR-UK-0dI">
@@ -67,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="947.32824427480909" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="946.875" y="3.1690140845070425"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YRp-Tb-8lR">
@@ -274,8 +274,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Niagara-Falls-Sunset-Wallpaper-iPhone-Wallpaper-iphoneswallpapers_com" width="607" height="1080"/>
         <image name="weather" width="1080" height="1350"/>
+        <image name="weather2" width="1280" height="1920"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

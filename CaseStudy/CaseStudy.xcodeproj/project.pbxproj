@@ -20,12 +20,12 @@
 		E03B09FB2AE7F88700B8C3F6 /* WeatherApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B09FA2AE7F88700B8C3F6 /* WeatherApiService.swift */; };
 		E03B09FD2AE7F89700B8C3F6 /* WeatherApiEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B09FC2AE7F89700B8C3F6 /* WeatherApiEndPoint.swift */; };
 		E03B09FF2AE7FCA900B8C3F6 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B09FE2AE7FCA900B8C3F6 /* LocationService.swift */; };
+		E070DD212AF6445100310F92 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E070DD202AF6445100310F92 /* Lottie */; };
 		E087BB442AEFE3F600A9F247 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E087BB432AEFE3F600A9F247 /* WeatherTableViewCell.swift */; };
 		E09CA4F82AE656C5001BEFE7 /* CoreLocationUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09CA4F62AE656C5001BEFE7 /* CoreLocationUI.framework */; };
 		E09CA4F92AE656C5001BEFE7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09CA4F72AE656C5001BEFE7 /* CoreLocation.framework */; };
 		E09CA4FE2AE658FC001BEFE7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09CA4FD2AE658FC001BEFE7 /* DetailViewController.swift */; };
 		E09CA5012AE68966001BEFE7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E09CA5002AE68966001BEFE7 /* Alamofire */; };
-		E0CF14802AF5352900A287EB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = E0CF147F2AF5352900A287EB /* Lottie */; };
 		E0CF14822AF5369100A287EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0CF14812AF5369100A287EB /* LaunchScreen.storyboard */; };
 		E0CF14842AF5370400A287EB /* weatherLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = E0CF14832AF5370400A287EB /* weatherLottie.json */; };
 		E0CF14862AF53AF000A287EB /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CF14852AF53AF000A287EB /* LaunchScreen.swift */; };
@@ -89,7 +89,7 @@
 				E09CA4F92AE656C5001BEFE7 /* CoreLocation.framework in Frameworks */,
 				E0E8E2AC2AEA65F0006AC62E /* SwiftyJSON in Frameworks */,
 				E09CA4F82AE656C5001BEFE7 /* CoreLocationUI.framework in Frameworks */,
-				E0CF14802AF5352900A287EB /* Lottie in Frameworks */,
+				E070DD212AF6445100310F92 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,20 +134,15 @@
 		E00AA5CD2AE01B9D00CEA65E /* CaseStudy */ = {
 			isa = PBXGroup;
 			children = (
-				E03B09F52AE7F85900B8C3F6 /* Service */,
-				E03B09F42AE7F85000B8C3F6 /* View */,
-				E03B09F32AE7F84800B8C3F6 /* Model */,
-				E03B09F22AE7F83B00B8C3F6 /* ViewModel */,
+				E06F98042AF68DDB007470E8 /* LaunchPage */,
+				E06F98022AF68DA7007470E8 /* MainPage */,
+				E06F98012AF68D57007470E8 /* WeatherDetailPage */,
 				E00AA5CE2AE01B9D00CEA65E /* AppDelegate.swift */,
 				E00AA5D02AE01B9D00CEA65E /* SceneDelegate.swift */,
-				E0CF14832AF5370400A287EB /* weatherLottie.json */,
-				E00AA5D22AE01B9D00CEA65E /* ViewController.swift */,
 				E00AA5D42AE01B9E00CEA65E /* Main.storyboard */,
 				E00AA5D72AE01BA000CEA65E /* Assets.xcassets */,
 				E00AA5DC2AE01BA000CEA65E /* Info.plist */,
-				E0FC48412AE92EA600DC1189 /* Constants.swift */,
-				E0CF14812AF5369100A287EB /* LaunchScreen.storyboard */,
-				E0CF14852AF53AF000A287EB /* LaunchScreen.swift */,
+				E06F98072AF68E42007470E8 /* Utils */,
 			);
 			path = CaseStudy;
 			sourceTree = "<group>";
@@ -204,6 +199,67 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		E06F98012AF68D57007470E8 /* WeatherDetailPage */ = {
+			isa = PBXGroup;
+			children = (
+				E03B09F42AE7F85000B8C3F6 /* View */,
+				E03B09F52AE7F85900B8C3F6 /* Service */,
+				E03B09F22AE7F83B00B8C3F6 /* ViewModel */,
+				E03B09F32AE7F84800B8C3F6 /* Model */,
+			);
+			path = WeatherDetailPage;
+			sourceTree = "<group>";
+		};
+		E06F98022AF68DA7007470E8 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				E06F98032AF68DBA007470E8 /* View */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		E06F98032AF68DBA007470E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E00AA5D22AE01B9D00CEA65E /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E06F98042AF68DDB007470E8 /* LaunchPage */ = {
+			isa = PBXGroup;
+			children = (
+				E06F98062AF68DF9007470E8 /* Model */,
+				E06F98052AF68DEA007470E8 /* View */,
+			);
+			path = LaunchPage;
+			sourceTree = "<group>";
+		};
+		E06F98052AF68DEA007470E8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0CF14812AF5369100A287EB /* LaunchScreen.storyboard */,
+				E0CF14852AF53AF000A287EB /* LaunchScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E06F98062AF68DF9007470E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E0CF14832AF5370400A287EB /* weatherLottie.json */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E06F98072AF68E42007470E8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E0FC48412AE92EA600DC1189 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		E09CA4F52AE6569C001BEFE7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,7 +289,7 @@
 				E09CA5002AE68966001BEFE7 /* Alamofire */,
 				E0E8E2A62AE991DB006AC62E /* OptionallyDecodable */,
 				E0E8E2AB2AEA65F0006AC62E /* SwiftyJSON */,
-				E0CF147F2AF5352900A287EB /* Lottie */,
+				E070DD202AF6445100310F92 /* Lottie */,
 			);
 			productName = CaseStudy;
 			productReference = E00AA5CB2AE01B9D00CEA65E /* CaseStudy.app */;
@@ -540,6 +596,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 39545B6YAC;
@@ -570,6 +627,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 39545B6YAC;
@@ -748,15 +806,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E070DD202AF6445100310F92 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0CF147E2AF5352900A287EB /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
 		E09CA5002AE68966001BEFE7 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E09CA4FF2AE68966001BEFE7 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		E0CF147F2AF5352900A287EB /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E0CF147E2AF5352900A287EB /* XCRemoteSwiftPackageReference "lottie-spm" */;
-			productName = Lottie;
 		};
 		E0E8E2A62AE991DB006AC62E /* OptionallyDecodable */ = {
 			isa = XCSwiftPackageProductDependency;
