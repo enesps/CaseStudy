@@ -2,7 +2,7 @@ import UIKit
 import CoreLocation
 import Alamofire
 
-class DetailViewController: UIViewController, CLLocationManagerDelegate {
+class DetailViewController: UIViewController {
     @IBOutlet weak var temp: UILabel!
     @IBOutlet weak var weatherTableView: UITableView!
     @IBOutlet weak var temp1: UILabel!
@@ -11,7 +11,6 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var weatherDescription: UILabel!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var loadDataActivator: UIActivityIndicatorView!
-    let locationManager = CLLocationManager()
     let viewModel = WeatherViewModel()
     
     override func viewDidLoad() {
@@ -21,14 +20,18 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
         loadDataActivator.startAnimating()
         
         viewModel.getWeatherData { [weak self] weatherData, error in
+            if let error = error {
+                print(error)
+            }
             if let weatherData = weatherData, let daily = weatherData.daily {
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
                     // TableView ve diğer UI elemanlarını güncelle
                     if let tableView = self?.weatherTableView {
                         self?.viewModel.updateUITableView(daily: daily, TableView: tableView)
                     }
-                    if let countryLabel = self?.country {
-                        self?.viewModel.updateUICountry(weatherData: weatherData, countryUI: countryLabel)
+                    if let countryLabel = self?.country,
+                       let weatherCountry = weatherData.timezone{
+                        self?.viewModel.updateUICountry(weatherCountry:weatherCountry, countryUI: countryLabel)
                     }
                     if let temperature = weatherData.current?.temp,
                        let tempUI = self?.temp,
@@ -40,6 +43,7 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate {
                         self?.viewModel.updateUIWeatherDescription(description: description, weatherDescriptionUI: weatherDescription)
                         self?.viewModel.getWeatherIcon(iconCode:icon) { iconImage in
                             if let image = iconImage {
+                                
                                 self?.viewModel.updateUIWeatherIcon(tempImage: tempImage, image: image)
                             }
                         }

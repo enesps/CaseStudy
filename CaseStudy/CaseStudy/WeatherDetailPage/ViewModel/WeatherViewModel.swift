@@ -23,8 +23,8 @@ class WeatherViewModel {
             TableView.reloadData()
         }
     }
-    func updateUICountry(weatherData:WeatherModel,countryUI:UILabel) {
-        let weatherCountry = weatherData.timezone?.components(separatedBy: "/").last?.replacingOccurrences(of: "_", with: " ")
+    func updateUICountry(weatherCountry:String,countryUI:UILabel) {
+        let weatherCountry = weatherCountry.components(separatedBy: "/").last?.replacingOccurrences(of: "_", with: " ")
         countryUI.text = weatherCountry
         
     }
@@ -50,6 +50,21 @@ class WeatherViewModel {
                 completion(responseModel, error)
             }
         }
+    }
+    func getWeatherData1() -> WeatherModel? {
+        var weatherData: WeatherModel?
+        
+        locationService.onLocationUpdate = { [weak self] location in
+            // Konum bilgilerini kullanarak API için URL oluşturun
+            let weatherEndpoint = WeatherEndpoint.oneCallWeatherURL(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+           
+            // WeatherService ile API'yi çağırın
+            self?.weatherService.handleResponse(urlString: weatherEndpoint!.absoluteString, responseType: WeatherModel.self) { responseModel, _ in
+                weatherData = responseModel
+            }
+        }
+        
+        return weatherData
     }
     // Hava durumuna göre arka plan resmini güncelle
     func updateBackgroundImage(backgroundImageView:UIImageView,withCondition condition: String) {
@@ -90,6 +105,7 @@ class WeatherViewModel {
                 if let data = data {
                     // Convert the data to a UIImage
                     if let image = UIImage(data: data) {
+                        
                         completion(image)
                     } else {
                         completion(nil) // Eğer resim dönüştürülemezse

@@ -12,7 +12,7 @@
 		E00AA5D32AE01B9D00CEA65E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00AA5D22AE01B9D00CEA65E /* ViewController.swift */; };
 		E00AA5D62AE01B9E00CEA65E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E00AA5D42AE01B9E00CEA65E /* Main.storyboard */; };
 		E00AA5D82AE01BA000CEA65E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E00AA5D72AE01BA000CEA65E /* Assets.xcassets */; };
-		E00AA5E62AE01BA000CEA65E /* CaseStudyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00AA5E52AE01BA000CEA65E /* CaseStudyTests.swift */; };
+		E00AA5E62AE01BA000CEA65E /* WeatherViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00AA5E52AE01BA000CEA65E /* WeatherViewModelTest.swift */; };
 		E00AA5F02AE01BA000CEA65E /* CaseStudyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00AA5EF2AE01BA000CEA65E /* CaseStudyUITests.swift */; };
 		E00AA5F22AE01BA000CEA65E /* CaseStudyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00AA5F12AE01BA000CEA65E /* CaseStudyUITestsLaunchTests.swift */; };
 		E03B09F72AE7F86E00B8C3F6 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03B09F62AE7F86E00B8C3F6 /* WeatherViewModel.swift */; };
@@ -60,7 +60,7 @@
 		E00AA5D72AE01BA000CEA65E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E00AA5DC2AE01BA000CEA65E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E00AA5E12AE01BA000CEA65E /* CaseStudyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaseStudyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E00AA5E52AE01BA000CEA65E /* CaseStudyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudyTests.swift; sourceTree = "<group>"; };
+		E00AA5E52AE01BA000CEA65E /* WeatherViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModelTest.swift; sourceTree = "<group>"; };
 		E00AA5EB2AE01BA000CEA65E /* CaseStudyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaseStudyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00AA5EF2AE01BA000CEA65E /* CaseStudyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudyUITests.swift; sourceTree = "<group>"; };
 		E00AA5F12AE01BA000CEA65E /* CaseStudyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudyUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		E00AA5E42AE01BA000CEA65E /* CaseStudyTests */ = {
 			isa = PBXGroup;
 			children = (
-				E00AA5E52AE01BA000CEA65E /* CaseStudyTests.swift */,
+				E00AA5E52AE01BA000CEA65E /* WeatherViewModelTest.swift */,
 			);
 			path = CaseStudyTests;
 			sourceTree = "<group>";
@@ -432,7 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E00AA5E62AE01BA000CEA65E /* CaseStudyTests.swift in Sources */,
+				E00AA5E62AE01BA000CEA65E /* WeatherViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
