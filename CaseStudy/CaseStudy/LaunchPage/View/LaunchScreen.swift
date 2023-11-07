@@ -7,6 +7,7 @@ class LaunchScreen: UIViewController {
 
 
     @IBOutlet weak var lottieAnimation: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let animationView = LottieAnimationView(name: "weatherLottie")
@@ -32,5 +33,15 @@ class LaunchScreen: UIViewController {
 //
 //        // Animasyonu başlatın
 //        animationView.play()
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+2) { [weak self] in
+            guard let self = self else { return }
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "navCon") as? UINavigationController else { return }
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
+        }
     }
 }

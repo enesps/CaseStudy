@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0vh-8A-QxK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x2m-II-KHT">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <accessibilityOverrides/>
     <dependencies>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Weather-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="CaseStudy" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,12 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="weather2" translatesAutoresizingMaskIntoConstraints="NO" id="vu5-Wm-j2J">
-                                <rect key="frame" x="-511" y="-726" width="921" height="1968"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="mainPage" translatesAutoresizingMaskIntoConstraints="NO" id="068-Wn-KV7">
+                                <rect key="frame" x="-105" y="-384" width="514" height="1655"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuR-UK-0dI">
-                                <rect key="frame" x="182" y="437" width="113" height="32"/>
+                                <rect key="frame" x="182" y="487" width="113" height="32"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button" cornerStyle="dynamic">
@@ -38,13 +38,13 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Api Key" minimumFontSize="50" translatesAutoresizingMaskIntoConstraints="NO" id="POv-yd-S1J">
-                                <rect key="frame" x="109" y="348" width="186" height="50"/>
+                                <rect key="frame" x="95" y="349" width="200" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" placeholder="YES" id="gc4-x7-fC3"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" placeholder="YES" id="gc4-x7-fC3"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -52,14 +52,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JuR-UK-0dI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="182" id="1Bp-zz-jnu"/>
-                            <constraint firstItem="POv-yd-S1J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="245" id="L8Q-ul-Inr"/>
+                            <constraint firstItem="POv-yd-S1J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="246" id="L8Q-ul-Inr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JuR-UK-0dI" secondAttribute="trailing" constant="98" id="XgV-Eh-pL7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="POv-yd-S1J" secondAttribute="trailing" constant="98" id="Zb7-3A-oi8"/>
-                            <constraint firstItem="POv-yd-S1J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="109" id="hJl-29-Gy8"/>
-                            <constraint firstItem="JuR-UK-0dI" firstAttribute="top" secondItem="POv-yd-S1J" secondAttribute="bottom" constant="39" id="jNk-Tm-xpv"/>
+                            <constraint firstItem="POv-yd-S1J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="95" id="hJl-29-Gy8"/>
+                            <constraint firstItem="JuR-UK-0dI" firstAttribute="top" secondItem="POv-yd-S1J" secondAttribute="bottom" constant="38" id="jNk-Tm-xpv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Weather" id="YNY-Rw-2XB"/>
+                    <navigationItem key="navigationItem" id="YNY-Rw-2XB"/>
                     <connections>
                         <outlet property="apiKeyText" destination="POv-yd-S1J" id="6JK-kr-sra"/>
                         <outlet property="nextPage" destination="JuR-UK-0dI" id="zCh-Cg-Air"/>
@@ -67,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="946.875" y="3.1690140845070425"/>
+            <point key="canvasLocation" x="945.80152671755718" y="2.8169014084507045"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YRp-Tb-8lR">
@@ -272,12 +272,62 @@
             </objects>
             <point key="canvasLocation" x="2032.5" y="3.1690140845070425"/>
         </scene>
+        <!--Launch Screen-->
+        <scene sceneID="usN-GA-Byl">
+            <objects>
+                <viewController storyboardIdentifier="launchScreen" id="x2m-II-KHT" customClass="LaunchScreen" customModule="CaseStudy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EQ3-PE-gpO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Forecast " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2t-dm-Sgo">
+                                <rect key="frame" x="16" y="75" width="361" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="98" id="0yF-kh-Paw"/>
+                                    <constraint firstAttribute="width" constant="361" id="E3D-pj-gEm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e3i-lk-F8w">
+                                <rect key="frame" x="0.0" y="260" width="393" height="578"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="393" id="Obz-fg-5rW"/>
+                                    <constraint firstAttribute="height" constant="477" id="f5I-lB-8uQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bbF-Xb-QZh"/>
+                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <constraints>
+                            <constraint firstItem="L2t-dm-Sgo" firstAttribute="leading" secondItem="bbF-Xb-QZh" secondAttribute="leading" constant="16" id="K2K-pU-A5v"/>
+                            <constraint firstItem="bbF-Xb-QZh" firstAttribute="bottom" secondItem="e3i-lk-F8w" secondAttribute="bottom" constant="81" id="LBS-Gs-kpM"/>
+                            <constraint firstItem="L2t-dm-Sgo" firstAttribute="top" secondItem="bbF-Xb-QZh" secondAttribute="top" constant="16" id="LGO-fb-Qos"/>
+                            <constraint firstItem="bbF-Xb-QZh" firstAttribute="trailing" secondItem="L2t-dm-Sgo" secondAttribute="trailing" constant="16" id="cxQ-aJ-g7N"/>
+                            <constraint firstItem="e3i-lk-F8w" firstAttribute="leading" secondItem="bbF-Xb-QZh" secondAttribute="leading" id="jCI-AO-cqb"/>
+                            <constraint firstItem="e3i-lk-F8w" firstAttribute="trailing" secondItem="bbF-Xb-QZh" secondAttribute="trailing" id="k2t-8A-ZRf"/>
+                            <constraint firstItem="e3i-lk-F8w" firstAttribute="top" secondItem="L2t-dm-Sgo" secondAttribute="bottom" constant="87" id="maw-Pb-LYz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lottieAnimation" destination="e3i-lk-F8w" id="WIq-S5-tPm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hdg-hm-rAL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1715.2671755725189" y="-35.211267605633807"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="mainPage" width="736" height="1307"/>
         <image name="weather" width="1080" height="1350"/>
-        <image name="weather2" width="1280" height="1920"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

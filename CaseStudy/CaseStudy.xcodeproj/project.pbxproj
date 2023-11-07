@@ -26,9 +26,8 @@
 		E09CA4F92AE656C5001BEFE7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09CA4F72AE656C5001BEFE7 /* CoreLocation.framework */; };
 		E09CA4FE2AE658FC001BEFE7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09CA4FD2AE658FC001BEFE7 /* DetailViewController.swift */; };
 		E09CA5012AE68966001BEFE7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E09CA5002AE68966001BEFE7 /* Alamofire */; };
-		E0CF14822AF5369100A287EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0CF14812AF5369100A287EB /* LaunchScreen.storyboard */; };
+		E0AC0D3C2AFA73DC00E99525 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AC0D3B2AFA73DC00E99525 /* LaunchScreen.swift */; };
 		E0CF14842AF5370400A287EB /* weatherLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = E0CF14832AF5370400A287EB /* weatherLottie.json */; };
-		E0CF14862AF53AF000A287EB /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CF14852AF53AF000A287EB /* LaunchScreen.swift */; };
 		E0E8E2A72AE991DB006AC62E /* OptionallyDecodable in Frameworks */ = {isa = PBXBuildFile; productRef = E0E8E2A62AE991DB006AC62E /* OptionallyDecodable */; };
 		E0E8E2AC2AEA65F0006AC62E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E0E8E2AB2AEA65F0006AC62E /* SwiftyJSON */; };
 		E0FC48422AE92EA600DC1189 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FC48412AE92EA600DC1189 /* Constants.swift */; };
@@ -73,9 +72,8 @@
 		E09CA4F62AE656C5001BEFE7 /* CoreLocationUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocationUI.framework; path = System/Library/Frameworks/CoreLocationUI.framework; sourceTree = SDKROOT; };
 		E09CA4F72AE656C5001BEFE7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E09CA4FD2AE658FC001BEFE7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		E0CF14812AF5369100A287EB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E0AC0D3B2AFA73DC00E99525 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		E0CF14832AF5370400A287EB /* weatherLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weatherLottie.json; sourceTree = "<group>"; };
-		E0CF14852AF53AF000A287EB /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		E0FC48412AE92EA600DC1189 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,8 +236,7 @@
 		E06F98052AF68DEA007470E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E0CF14812AF5369100A287EB /* LaunchScreen.storyboard */,
-				E0CF14852AF53AF000A287EB /* LaunchScreen.swift */,
+				E0AC0D3B2AFA73DC00E99525 /* LaunchScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -385,7 +382,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0CF14822AF5369100A287EB /* LaunchScreen.storyboard in Resources */,
 				E00AA5D82AE01BA000CEA65E /* Assets.xcassets in Resources */,
 				E0CF14842AF5370400A287EB /* weatherLottie.json in Resources */,
 				E00AA5D62AE01B9E00CEA65E /* Main.storyboard in Resources */,
@@ -421,7 +417,7 @@
 				E00AA5D12AE01B9D00CEA65E /* SceneDelegate.swift in Sources */,
 				E03B09FB2AE7F88700B8C3F6 /* WeatherApiService.swift in Sources */,
 				E03B09F92AE7F87900B8C3F6 /* WeatherModel.swift in Sources */,
-				E0CF14862AF53AF000A287EB /* LaunchScreen.swift in Sources */,
+				E0AC0D3C2AFA73DC00E99525 /* LaunchScreen.swift in Sources */,
 				E03B09FD2AE7F89700B8C3F6 /* WeatherApiEndPoint.swift in Sources */,
 				E03B09FF2AE7FCA900B8C3F6 /* LocationService.swift in Sources */,
 				E09CA4FE2AE658FC001BEFE7 /* DetailViewController.swift in Sources */,
