@@ -27,6 +27,8 @@
 		E09CA4FE2AE658FC001BEFE7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09CA4FD2AE658FC001BEFE7 /* DetailViewController.swift */; };
 		E09CA5012AE68966001BEFE7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E09CA5002AE68966001BEFE7 /* Alamofire */; };
 		E0AC0D3C2AFA73DC00E99525 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AC0D3B2AFA73DC00E99525 /* LaunchScreen.swift */; };
+		E0B8199B2AFCF18A00D5CB18 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = E0B8199A2AFCF18A00D5CB18 /* AlamofireImage */; };
+		E0B8199F2AFD035300D5CB18 /* mockWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = E0B8199E2AFD035300D5CB18 /* mockWeather.json */; };
 		E0CF14842AF5370400A287EB /* weatherLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = E0CF14832AF5370400A287EB /* weatherLottie.json */; };
 		E0E8E2A72AE991DB006AC62E /* OptionallyDecodable in Frameworks */ = {isa = PBXBuildFile; productRef = E0E8E2A62AE991DB006AC62E /* OptionallyDecodable */; };
 		E0E8E2AC2AEA65F0006AC62E /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E0E8E2AB2AEA65F0006AC62E /* SwiftyJSON */; };
@@ -73,6 +75,7 @@
 		E09CA4F72AE656C5001BEFE7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E09CA4FD2AE658FC001BEFE7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E0AC0D3B2AFA73DC00E99525 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		E0B8199E2AFD035300D5CB18 /* mockWeather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockWeather.json; sourceTree = "<group>"; };
 		E0CF14832AF5370400A287EB /* weatherLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weatherLottie.json; sourceTree = "<group>"; };
 		E0FC48412AE92EA600DC1189 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +91,7 @@
 				E0E8E2AC2AEA65F0006AC62E /* SwiftyJSON in Frameworks */,
 				E09CA4F82AE656C5001BEFE7 /* CoreLocationUI.framework in Frameworks */,
 				E070DD212AF6445100310F92 /* Lottie in Frameworks */,
+				E0B8199B2AFCF18A00D5CB18 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +152,7 @@
 		E00AA5E42AE01BA000CEA65E /* CaseStudyTests */ = {
 			isa = PBXGroup;
 			children = (
+				E0B8199D2AFD032200D5CB18 /* Client */,
 				E00AA5E52AE01BA000CEA65E /* WeatherViewModelTest.swift */,
 			);
 			path = CaseStudyTests;
@@ -266,6 +271,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E0B8199D2AFD032200D5CB18 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				E0B8199E2AFD035300D5CB18 /* mockWeather.json */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -287,6 +300,7 @@
 				E0E8E2A62AE991DB006AC62E /* OptionallyDecodable */,
 				E0E8E2AB2AEA65F0006AC62E /* SwiftyJSON */,
 				E070DD202AF6445100310F92 /* Lottie */,
+				E0B8199A2AFCF18A00D5CB18 /* AlamofireImage */,
 			);
 			productName = CaseStudy;
 			productReference = E00AA5CB2AE01B9D00CEA65E /* CaseStudy.app */;
@@ -365,6 +379,7 @@
 				E0E8E2A52AE991DB006AC62E /* XCRemoteSwiftPackageReference "OptionallyDecodable" */,
 				E0E8E2AA2AEA65F0006AC62E /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				E0CF147E2AF5352900A287EB /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				E0B819992AFCF18A00D5CB18 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = E00AA5CC2AE01B9D00CEA65E /* Products */;
 			projectDirPath = "";
@@ -392,6 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0B8199F2AFD035300D5CB18 /* mockWeather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +791,14 @@
 				minimumVersion = 5.8.0;
 			};
 		};
+		E0B819992AFCF18A00D5CB18 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.0;
+			};
+		};
 		E0CF147E2AF5352900A287EB /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -811,6 +835,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E09CA4FF2AE68966001BEFE7 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		E0B8199A2AFCF18A00D5CB18 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0B819992AFCF18A00D5CB18 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
 		};
 		E0E8E2A62AE991DB006AC62E /* OptionallyDecodable */ = {
 			isa = XCSwiftPackageProductDependency;

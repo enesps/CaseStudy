@@ -1,5 +1,6 @@
 import Alamofire
 import UIKit
+import AlamofireImage
 
 class WeatherService {
 
@@ -28,4 +29,23 @@ class WeatherService {
                 }
             }
         }
+    func responseData(urlString: String, completion: @escaping (WeatherModel?, Error?) -> Void) {
+                    // WeatherService ile API'yi çağırın
+                    handleResponse(urlString:urlString , responseType: WeatherModel.self) { responseModel, error in
+                        completion(responseModel, error)
+                    }
+    }
+    func getWeatherIcon(iconCode: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
+           let iconURL = "https://openweathermap.org/img/wn/\(iconCode)@2x.png"
+
+           AF.request(iconURL).responseImage { response in
+               switch response.result {
+               case .success(let image):
+                   completion(.success(image))
+               case .failure(let error):
+                   completion(.failure(error))
+               }
+           }
+       }
+        
 }

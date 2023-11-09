@@ -6,17 +6,20 @@
 //
 
 import UIKit
-
+import CoreLocation
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
 
+    let locationManager = CLLocationManager()
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        return true
-    }
+       func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+           // Step 3: request authorization
+           //locationManager.requestWhenInUseAuthorization()
+           //or
+           locationManager.requestAlwaysAuthorization()
+           return true
+       }
 
     // MARK: UISceneSession Lifecycle
 
