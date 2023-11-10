@@ -26,20 +26,29 @@ final class WeatherViewModelTest: XCTestCase {
     }
     
     func testFetchWeatherData() {
-        let expectation = XCTestExpectation(description: "Fetch Weather Data")
-        var viewmodel = WeatherViewModel()
-        viewmodel.fetchWeatherData(latitude: 37.7749, longitude: -122.4194)
-        viewmodel.didUpdateWeatherData = { weatherData in
-            
-               
-                XCTAssertNotNil(weatherData)
-                
+        // MockWeatherService kullanarak view modelin fetchWeatherData fonksiyonunu test et
+        viewModel?.weatherService = MockWeatherService()
 
+        let expectation = XCTestExpectation(description: "Fetch Weather Data")
+
+        viewModel?.fetchWeatherData(latitude: 37.7749, longitude: -122.4194)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertNotNil(self.viewModel?.weatherData)
+            expectation.fulfill()
         }
-        
-  
+
+        wait(for: [expectation], timeout: 2.0)
     }
-    
+
+    class MockWeatherService: WeatherService {
+        override func responseData(urlString: String, completion: @escaping (WeatherModel?, Error?) -> Void) {
+            // Burada mock WeatherModel veya hata oluşturabilirsiniz
+            let mockWeather = WeatherModel(lat: 37.7749, lon: -122.4194, timezone: "America/Los_Angeles", timezoneOffset: -25200, current: nil, minutely: nil, hourly: nil, daily: nil)
+            completion(mockWeather, nil)
+        }
+    }
+
     func testUpdateUICountry() {
         let countryLabel = UILabel()
         viewModel?.updateUICountry(countryUI: countryLabel)
@@ -60,14 +69,6 @@ final class WeatherViewModelTest: XCTestCase {
         XCTAssertEqual(weatherDescriptionLabel.text, "overcast clouds")
     }
     
-    //    func testUpdateUIWeatherIcon() {
-    //        let tempImage = UIImageView()
-    //        let image = UIImage(named: "sun_icon") // Örnek bir ikon adı
-    //
-    //        viewModel?.updateUIWeatherIcon(tempImage: tempImage, image: image?)
-    //
-    //        XCTAssertEqual(tempImage.image, image)
-    //    }
     
     func testUpdateBackgroundImage() {
         let backgroundImageView = UIImageView()
@@ -76,6 +77,17 @@ final class WeatherViewModelTest: XCTestCase {
         viewModel?.updateBackgroundImage(backgroundImageView: backgroundImageView, withCondition: condition)
         
         XCTAssertEqual(backgroundImageView.image, UIImage(named: "weather"))
+    }
+    
+    func testGetDailyModel() {
+        // Önce DailyModel'i bir örnek değerle dolduralım
+        viewModel?.dailyModel = (viewModel?.weatherData?.daily)!
+
+        // Şimdi getDailyModel'i çağırarak beklenen değeri kontrol edelim
+        
+        let result = viewModel?.dailyModel.first?.temp?.day
+
+        XCTAssertEqual(result, 284.99, "getDailyModel fonksiyonu beklenen değeri döndürmedi.")
     }
     //    func testUpdateUITableView() {
     //        let tableView = UITableView()

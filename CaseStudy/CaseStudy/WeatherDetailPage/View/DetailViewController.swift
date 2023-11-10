@@ -74,19 +74,19 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = weatherTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WeatherTableViewCell
         
         // Burada Daily modeli içindeki temp.day kullanılıyor
-        if let dayTemp = viewModel.getDailyModel[indexPath.row].temp?.day {
+        if let dayTemp = viewModel.dailyModel[indexPath.row].temp?.day {
             cell.setdailyTemp(dailyTemp: String(describing: Int(dayTemp-273.15)))
             
         } else {
             cell.setdailyTemp(dailyTemp: "Bilgi yok")
         }
-        if let dayFeelsLike = viewModel.getDailyModel[indexPath.row].temp?.max,
-           let dayCode = viewModel.getDailyModel[indexPath.row].dt {
+        if let dayFeelsLike = viewModel.dailyModel[indexPath.row].temp?.max,
+           let dayCode = viewModel.dailyModel[indexPath.row].dt {
             cell.setdailyFeelsTemp(dailyFeelsTemp: String(describing: Int(dayFeelsLike-273.15)))
             cell.setdailyDay(dayCode: String(describing: dayCode))
         }
 
-        if let dayImage = viewModel.getDailyModel[indexPath.row].weather?.first?.icon {
+        if let dayImage = viewModel.dailyModel[indexPath.row].weather?.first?.icon {
             viewModel.getWeatherIcon(iconCode: dayImage) { iconImage in
                 if let image = iconImage {
                     
@@ -101,6 +101,6 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getDailyModel.count
+        return viewModel.dailyModel.count
     }
 }

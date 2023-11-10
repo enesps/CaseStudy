@@ -3,19 +3,66 @@ import UIKit
 import CoreLocation
 
 final class WeatherViewModel {
-    private var weatherService: WeatherService
-    private var DailyModel = [Daily]()
-     var weatherData: WeatherModel?
-    var didUpdateWeatherData: ((WeatherModel?) -> Void)?
-    var locationService = LocationService()
-    private var isLocationUpdated = false
+    private var _weatherService: WeatherService
+    private var _dailyModel = [Daily]()
+    private var _weatherData: WeatherModel?
+    private var _didUpdateWeatherData: ((WeatherModel?) -> Void)?
+    private var _locationService = LocationService()
+    
     init(weatherService: WeatherService = WeatherService(), locationService: LocationService = LocationService()) {
-        self.weatherService = weatherService
-        self.locationService = locationService
+        self._weatherService = weatherService
+        self._locationService = locationService
+    }
+    var weatherService: WeatherService {
+        get {
+            return _weatherService
+        }
+        set {
+            _weatherService = newValue
+        }
+    }
+    
+    var dailyModel: [Daily] {
+        get {
+            return _dailyModel
+        }
+        set {
+            _dailyModel = newValue
+        }
+    }
+    
+    var weatherData: WeatherModel? {
+        get {
+            return _weatherData
+        }
+        set {
+            _weatherData = newValue
+        }
+    }
+    
+    var didUpdateWeatherData: ((WeatherModel?) -> Void)? {
+        get {
+            return _didUpdateWeatherData
+        }
+        set {
+            _didUpdateWeatherData = newValue
+        }
+    }
+    
+    var locationService: LocationService {
+        get {
+            return _locationService
+        }
+        set {
+            _locationService = newValue
+        }
     }
     
     
-
+    
+    
+    
+    
     
     func fetchWeatherData(latitude: Double, longitude: Double) {
         if let weatherURL = WeatherEndpoint.oneCallWeatherURL(latitude: latitude, longitude: longitude) {
@@ -27,16 +74,8 @@ final class WeatherViewModel {
         }
     }
     
-    
-    var getDailyModel: [Daily] {
-        return DailyModel
-    }
-    func setDailyModel(DailyModel: [Daily]) {
-        self.DailyModel = DailyModel
-    }
-    
     func updateUITableView(daily: [Daily],TableView:UITableView){
-        self.DailyModel = (daily)
+        self.dailyModel = (daily)
         DispatchQueue.main.async {
             TableView.reloadData()
         }
@@ -53,21 +92,17 @@ final class WeatherViewModel {
         weatherDescriptionUI.text = weatherData?.current?.weather?.first?.description?.rawValue
         
     }
-    func updateUIWeatherIcon(tempImage:UIImageView,image: UIImage) {
-        
-        tempImage.image = image
-        
-    }
-
+    
+    
     // Hava durumuna göre arka plan resmini güncelle
     func updateBackgroundImage(backgroundImageView:UIImageView,withCondition condition: String) {
         var backgroundName = "default" // Varsayılan arka plan resmi adı
         
         switch condition {
         case "clear sky":
-            backgroundName = "clear_sky" // Güneşli hava için resim adı
+            backgroundName = "clear_sky"
         case "few clouds":
-            backgroundName = "few_clouds" // Bulutlu hava için resim adı
+            backgroundName = "few_clouds"
         case "scattered clouds":
             backgroundName = "scattered_clouds"
         case "broken clouds":
@@ -111,5 +146,5 @@ final class WeatherViewModel {
             completion(nil) // Eğer URL geçerli değilse
         }
     }
-
+    
 }
