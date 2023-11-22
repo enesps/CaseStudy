@@ -11,14 +11,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    
-    
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-       
-        guard let _ = (scene as? UIWindowScene) else { return }
-        
-        
+        guard let url = connectionOptions.urlContexts.first?.url else { return }
+
+        handleDeepLink(url)
     }
+
+    func handleDeepLink(_ url: URL) {
+        guard let host = url.host else { return }
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationController = storyboard.instantiateViewController(withIdentifier: "navCon") as? UINavigationController
+
+        if host == "home" {
+            if let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController {
+                navigationController?.pushViewController(viewController, animated: true)
+                window?.rootViewController = navigationController
+            }
+        } else if host == "weatherdetail" {
+            if let detailViewController = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+                navigationController?.pushViewController(detailViewController, animated: true)
+                window?.rootViewController = navigationController
+            }
+        }
+    }
+
+
     
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

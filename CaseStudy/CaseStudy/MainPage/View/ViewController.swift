@@ -44,7 +44,7 @@ class ViewController: UIViewController {
             let vc =  self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
             self.show(vc, sender: nil)
         }else{
-            let alertController = UIAlertController(title: "Invalid Api Key", message: "Please make sure your Api key to correct sign in", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Invalid Api Key", message: "Please make sure you entered your API correctly.", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "Try Again", style: .default) { (action) in
             }

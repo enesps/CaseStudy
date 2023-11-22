@@ -89,7 +89,7 @@ final class WeatherViewModel {
         weatherTemp.text = "\(String(describing: Int((weatherData?.current?.temp)! - 273.15)))°"
     }
     func updateUIWeatherDescription(description: String,weatherDescriptionUI: UILabel) {
-        weatherDescriptionUI.text = weatherData?.current?.weather?.first?.description?.rawValue
+        weatherDescriptionUI.text = weatherData?.current?.weather?.first?.description
         
     }
     

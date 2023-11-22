@@ -1,10 +1,12 @@
 import UIKit
 import CoreLocation
-import Alamofire
+
 
 final class DetailViewController: UIViewController {
 
+    @IBOutlet weak var tempLabel: UILabel!
     
+    @IBOutlet weak var maxTempLabel: UILabel!
     @IBOutlet weak var temp: UILabel!
     @IBOutlet weak var weatherTableView: UITableView!
     @IBOutlet weak var temp1: UILabel!
@@ -53,14 +55,16 @@ final class DetailViewController: UIViewController {
         viewModel.updateUICountry(countryUI: country)
 
         if let currentWeather = weatherData.current,
-           let description = currentWeather.weather?.first?.description?.rawValue,
+           let description = currentWeather.weather?.first?.description,
            let tempUI = temp,
            let weatherDescriptionUI = weatherDescription,
            let condition = weatherData.current?.weather?.first?.description,
               let backgroundImageView = backgroundImageView {
             viewModel.updateUITemperature(weatherTemp: tempUI)
             viewModel.updateUIWeatherDescription(description: description, weatherDescriptionUI: weatherDescriptionUI)
-            viewModel.updateBackgroundImage(backgroundImageView: backgroundImageView, withCondition: condition.rawValue)
+            viewModel.updateBackgroundImage(backgroundImageView: backgroundImageView, withCondition: condition)
+            tempLabel.text = " Min"
+            maxTempLabel.text = "Max"
         }
     }
 
@@ -104,3 +108,4 @@ extension DetailViewController : UITableViewDelegate, UITableViewDataSource {
         return viewModel.dailyModel.count
     }
 }
+

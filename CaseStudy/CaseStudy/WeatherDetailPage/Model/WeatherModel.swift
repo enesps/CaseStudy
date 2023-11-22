@@ -17,7 +17,7 @@ struct WeatherModel: Codable {
 
     enum CodingKeys: String, CodingKey {
         case lat, lon, timezone
-        case timezoneOffset
+        case timezoneOffset = "timezone_offset"
         case current, minutely, hourly, daily
     }
 }
@@ -33,18 +33,28 @@ struct Current: Codable {
     let windDeg: Int?
     let weather: [Weather]?
     let windGust, pop: Double?
+    let rain: Rain?
 
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, temp
-        case feelsLike
+        case feelsLike = "feels_like"
         case pressure, humidity
-        case dewPoint
+        case dewPoint = "dew_point"
         case uvi, clouds, visibility
-        case windSpeed
-        case windDeg
+        case windSpeed = "wind_speed"
+        case windDeg = "wind_deg"
         case weather
-        case windGust
-        case pop
+        case windGust = "wind_gust"
+        case pop, rain
+    }
+}
+
+// MARK: - Rain
+struct Rain: Codable {
+    let the1H: Double?
+
+    enum CodingKeys: String, CodingKey {
+        case the1H = "1h"
     }
 }
 
@@ -52,18 +62,7 @@ struct Current: Codable {
 struct Weather: Codable {
     let id: Int?
     let main: Main?
-    let description: Description?
-    let icon: String?
-}
-
-enum Description: String, Codable {
-    case brokenClouds = "broken clouds"
-    case clearSky = "clear sky"
-    case fewClouds = "few clouds"
-    case lightRain = "light rain"
-    case moderateRain = "moderate rain"
-    case overcastClouds = "overcast clouds"
-    case scatteredClouds = "scattered clouds"
+    let description, icon: String?
 }
 
 enum Main: String, Codable {
@@ -85,19 +84,19 @@ struct Daily: Codable {
     let windGust: Double?
     let weather: [Weather]?
     let clouds: Int?
-    let pop, uvi, rain: Double?
+    let pop, rain, uvi: Double?
 
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, moonrise, moonset
-        case moonPhase
+        case moonPhase = "moon_phase"
         case temp
-        case feelsLike
+        case feelsLike = "feels_like"
         case pressure, humidity
-        case dewPoint
-        case windSpeed
-        case windDeg
-        case windGust
-        case weather, clouds, pop, uvi, rain
+        case dewPoint = "dew_point"
+        case windSpeed = "wind_speed"
+        case windDeg = "wind_deg"
+        case windGust = "wind_gust"
+        case weather, clouds, pop, rain, uvi
     }
 }
 
